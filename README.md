@@ -37,6 +37,11 @@ Success! Project initialization completed.
 You may now add components.
 ```
 
+* Install Apollo client and GraphQL 
+
+```
+npm install @apollo/client graphql
+```
 
 ## Links
 

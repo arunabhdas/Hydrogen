@@ -2,7 +2,7 @@
 
 ## Screenshots
 
-<img src="https://github.com/arunabhdas/Hydrogen/blob/main/screenshots/hydrogen_agentic_crm_1.png?raw=true" width="400" />
+<img src="https://github.com/arunabhdas/Hydrogen/blob/main/screenshots/hydrogen_agentic_crm_1.png?raw=true" width="720" />
 
 ## Steps
 

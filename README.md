@@ -44,3 +44,17 @@ https://youtu.be/O8ivm7403rk?si=DtSqbPatkbrQY4e2v
 
 https://youtu.be/BNYwj0ZvU1U?si=cEVvywR2BnDEvUey
 
+
+
+## Prerequisites
+
+```
+─❯ node --version          
+v23.8.0
+```
+
+
+```
+╰─❯ npm --version 
+11.2.0
+```

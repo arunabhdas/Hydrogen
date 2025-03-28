@@ -36,3 +36,11 @@ Some packages may fail to install due to peer dependency issues in npm (see http
 Success! Project initialization completed.
 You may now add components.
 ```
+
+
+## Links
+
+https://youtu.be/O8ivm7403rk?si=DtSqbPatkbrQY4e2v
+
+https://youtu.be/BNYwj0ZvU1U?si=cEVvywR2BnDEvUey
+

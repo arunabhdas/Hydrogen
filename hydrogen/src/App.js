@@ -5,9 +5,6 @@ import Card from "./components/Card";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-
-      </header>
       <div className="card-container">
           <Card/>
           <Card/>

@@ -15,3 +15,11 @@ npm init --yes && npm pkg set type="module"
 ````
 npm install @apollo/server graphql
 ```
+
+## Run Apollo server
+
+```
+cd hydrogen-server
+
+node server.js
+```

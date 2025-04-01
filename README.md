@@ -4,6 +4,18 @@
 
 <img src="https://github.com/arunabhdas/Hydrogen/blob/main/screenshots/hydrogen_agentic_crm_1.png?raw=true" width="720" />
 
+
+## Develop
+
+* Run dev using
+
+```
+cd hydrogen
+
+npm run dev
+```
+
+
 ## Steps
 
 * Create using

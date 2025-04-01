@@ -59,7 +59,11 @@ const GET_USER_BY_ID = gql`
 
 
 function Home() {
-  const { data: getUsersData, error: getUsersError, loading:getUsersLoading } = useQuery(GET_USERS);
+  const { 
+    data: getUsersData, 
+    error: getUsersError, 
+    loading:getUsersLoading 
+  } = useQuery(GET_USERS);
   const { data, error, loading } = useQuery(GET_USER_BY_ID);
 
   if (getUsersLoading) return <p> Data loading... </p>;

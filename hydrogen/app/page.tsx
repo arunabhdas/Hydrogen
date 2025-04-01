@@ -79,6 +79,9 @@ function Home() {
       <TopNavigationMenu/>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
       <h1>Users</h1>  
+      <div>
+        <h1>Selected User</h1>
+      </div>
       <div>{ getUsersData.getUsers.map( (user) => (
         <div>
           <p>Name: {user.name}</p>

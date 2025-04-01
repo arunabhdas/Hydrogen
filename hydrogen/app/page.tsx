@@ -49,11 +49,24 @@ const GET_USERS = gql`
 function Home() {
   const { data, error, loading } = useQuery(GET_USERS);
 
+  if (loading) return <p> Data loading... </p>;
+
+  if (error) return <p>Error: {error.message}</p>;
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 pb-10 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <TopNavigationMenu/>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-      
+      <h1>Users</h1>  
+      <div>{ data.getUsers.map( (user) => (
+        <div>
+          <p>Name: {user.name}</p>
+          <p>Age: {user.age}</p>
+          <p>Is married: {user.isMarried ? "Yes" : "No"}</p>
+          <hr/>
+        </div>
+      ))}
+      </div>
 
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">

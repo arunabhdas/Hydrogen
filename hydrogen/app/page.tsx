@@ -80,7 +80,6 @@ function Home() {
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 pb-10 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <TopNavigationMenu/>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-      <h1>Users</h1>  
       <div>
         { getUserByIdLoading ? <p> Loading user...</p> : (
           <>
@@ -90,6 +89,7 @@ function Home() {
           </>
         )}
       </div>
+      <h1>Users</h1>  
       <div>{ getUsersData.getUsers.map( (user, index) => (
         <div key={user.id || index }>
           <p>Name: {user.name}</p>

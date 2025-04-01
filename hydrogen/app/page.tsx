@@ -68,7 +68,9 @@ function Home() {
     data: getUserByIdData, 
     error: getUserByIdError, 
     loading: getUserByIdLoading 
-  } = useQuery(GET_USER_BY_ID);
+  } = useQuery(GET_USER_BY_ID, {
+    variables: {id: "2"}
+  });
 
   if (getUsersLoading) return <p> Data loading... </p>;
 
@@ -80,10 +82,16 @@ function Home() {
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
       <h1>Users</h1>  
       <div>
-        <h1>Selected User</h1>
+        { getUserByIdLoading ? <p> Loading user...</p> : (
+          <>
+          <h1>Selected User</h1>
+          <p>{ getUserByIdData.name } </p>
+          <p>{ getUserByIdData.age } </p>
+          </>
+        )}
       </div>
-      <div>{ getUsersData.getUsers.map( (user) => (
-        <div>
+      <div>{ getUsersData.getUsers.map( (user, index) => (
+        <div key={user.id || index }>
           <p>Name: {user.name}</p>
           <p>Age: {user.age}</p>
           <p>Is married: {user.isMarried ? "Yes" : "No"}</p>

@@ -85,8 +85,8 @@ function Home() {
         { getUserByIdLoading ? <p> Loading user...</p> : (
           <>
           <h1>Selected User</h1>
-          <p>{ getUserByIdData.name } </p>
-          <p>{ getUserByIdData.age } </p>
+          <p>{ getUserByIdData.getUserById.name } </p>
+          <p>{ getUserByIdData.getUserById.age } </p>
           </>
         )}
       </div>

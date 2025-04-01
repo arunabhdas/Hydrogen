@@ -46,19 +46,32 @@ const GET_USERS = gql`
   }
 `;
 
+const GET_USER_BY_ID = gql`
+  query GetUserById($id: ID!) {
+    getUserById(id: $id) {
+      id
+      age
+      name
+      isMarried
+    }
+  }
+`;
+
+
 function Home() {
-  const { data, error, loading } = useQuery(GET_USERS);
+  const { data: getUsersData, error: getUsersError, loading:getUsersLoading } = useQuery(GET_USERS);
+  const { data, error, loading } = useQuery(GET_USER_BY_ID);
 
-  if (loading) return <p> Data loading... </p>;
+  if (getUsersLoading) return <p> Data loading... </p>;
 
-  if (error) return <p>Error: {error.message}</p>;
+  if (getUsersError) return <p>Error: {getUsersError.message}</p>;
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 pb-10 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <TopNavigationMenu/>
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
       <h1>Users</h1>  
-      <div>{ data.getUsers.map( (user) => (
+      <div>{ getUsersData.getUsers.map( (user) => (
         <div>
           <p>Name: {user.name}</p>
           <p>Age: {user.age}</p>

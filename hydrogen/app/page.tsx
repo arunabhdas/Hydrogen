@@ -64,7 +64,11 @@ function Home() {
     error: getUsersError, 
     loading:getUsersLoading 
   } = useQuery(GET_USERS);
-  const { data, error, loading } = useQuery(GET_USER_BY_ID);
+  const { 
+    data: getUserByIdData, 
+    error: getUserByIdError, 
+    loading: getUserByIdLoading 
+  } = useQuery(GET_USER_BY_ID);
 
   if (getUsersLoading) return <p> Data loading... </p>;
 

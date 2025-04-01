@@ -8,7 +8,8 @@ import AccountMenu from "@/components/account-menu";
 
 import Image from "next/image";
 import { Button } from "@/components/ui/button"
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery, useMutation, gql } from "@apollo/client";
+
 
 
 import {
@@ -33,6 +34,17 @@ import {
   TableRow,
 } from "@/components/ui/table"
 
+
+const GET_USERS = gql`
+  query GetUsers {
+    getUsers {
+      id
+      age
+      name
+      isMarried
+    }
+  }
+`;
 
 export default function Home() {
 

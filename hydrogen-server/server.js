@@ -45,7 +45,8 @@ const resolvers = {
                 age,
                 isMarried
             };
-            users.push(newUser)
+            console.log(newUser);
+            users.push(newUser);
         },
     },
 };

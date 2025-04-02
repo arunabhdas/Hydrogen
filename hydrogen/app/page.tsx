@@ -92,7 +92,15 @@ function Home() {
 
   const handleCreateUser = async () => {
     console.log(newUser);
-    // createUser()
+    createUser({
+      variables: 
+        {
+          name: newUser.name, 
+          age: Number(newUser.age), 
+          isMarried: false
+        }
+      }
+    )
   };
 
   return (

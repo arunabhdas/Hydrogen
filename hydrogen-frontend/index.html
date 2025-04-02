@@ -17,16 +17,16 @@
         
         .container {
             display: grid;
-            grid-template-columns: 33% 33% 33%;
-            grid-template-rows: 200px 100px 100px;
+            grid-template-columns: 100px 100px minmax(100px, auto);
+            grid-template-rows: 200px 200px 200px;
             grid-gap: 20px;
             max-width: 600px;
             padding: 20px;
         }
         
         .rectangle {
-            height: 120px;
-            width: 120px;
+            height: 100px;
+            width: 100px;
             border-radius: 15px;
             display: flex;
             justify-content: center;
@@ -39,7 +39,7 @@
         }
         
         .rectangle:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         

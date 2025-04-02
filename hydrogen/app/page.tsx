@@ -57,6 +57,18 @@ const GET_USER_BY_ID = gql`
   }
 `;
 
+const CREATE_USER = gql`
+  mutation GetUserById($id: ID!) {
+    getUserById(id: $id) {
+      id
+      age
+      name
+      isMarried
+    }
+  }
+`;
+
+
 
 function Home() {
   const { 

@@ -3,6 +3,7 @@
 import * as React from "react"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
+import { useState } from "react"
 import Lightswitch from "@/components/lightswitch"
 import AccountMenu from "@/components/account-menu";
 
@@ -33,6 +34,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { create } from "domain"
 
 
 const GET_USERS = gql`
@@ -58,12 +60,9 @@ const GET_USER_BY_ID = gql`
 `;
 
 const CREATE_USER = gql`
-  mutation GetUserById($id: ID!) {
-    getUserById(id: $id) {
-      id
-      age
+  mutation CreateUser($name: String!, $age: Int!, $isMarried: Boolean!) {
+    createUser(name: $name, age: $age, isMarried: $isMarried) {
       name
-      isMarried
     }
   }
 `;
@@ -71,6 +70,7 @@ const CREATE_USER = gql`
 
 
 function Home() {
+  const [newUser, setNewUser] = useState({});
   const { 
     data: getUsersData, 
     error: getUsersError, 
@@ -84,9 +84,15 @@ function Home() {
     variables: {id: "2"}
   });
 
+  const [createUser] = useMutation(CREATE_USER)
+
   if (getUsersLoading) return <p> Data loading... </p>;
 
   if (getUsersError) return <p>Error: {getUsersError.message}</p>;
+
+  const handleCreateUser = async () => {
+    createUser()
+  };
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-4 pb-10 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -95,6 +101,11 @@ function Home() {
       <div>
         { getUserByIdLoading ? <p> Loading user...</p> : (
           <>
+          <div>
+            <input placeholder="Name..."/>
+            <input placeholder="Age..." type="number"/>
+            <button onClick={handleCreateUser}>Create User</button>
+          </div>
           <h1>Selected User</h1>
           <p>{ getUserByIdData.getUserById.name } </p>
           <p>{ getUserByIdData.getUserById.age } </p>

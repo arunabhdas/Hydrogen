@@ -1,28 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>9 Rounded Rectangles</title>
     <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333;
+            --container-bg: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.2);
+        }
+        
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #f5f5f5;
+            --container-bg: #1e1e1e;
+            --shadow-color: rgba(255, 255, 255, 0.1);
+        }
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
             margin: 0;
-            background-color: #f5f5f5;
+            background-color: var(--bg-color);
         }
         
         .container {
             height: 100%;
             display: grid;
-            grid-template-columns: 1fr 1fr 2fr;
+            grid-template-columns: repeat(3, 1fr);
             grid-template-rows: repeat(3, 150px);
             grid-gap: 20px;
             max-width: 600px;
             padding: 20px;
+            background-color: var(--container-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 8px var(--shadow-color);
         }
         
         .rectangle {
@@ -41,6 +62,7 @@
         
         .rectangle:hover {
             transform: translateY(-10px);
+            box-shadow: 0 10px 20px var(--shadow-color);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
@@ -53,9 +75,36 @@
         .rectangle:nth-child(7) { background-color: #5E6472; }
         .rectangle:nth-child(8) { background-color: #45B7D1; }
         .rectangle:nth-child(9) { background-color: #F38181; }
+
+
+        .theme-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: 2px solid var(--text-color);
+            color: var(--text-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background-color: var(--text-color);
+            color: var(--bg-color);
+        }
+        
+        .title {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
     </style>
 </head>
 <body>
+    <h1 class="title">Hydrogen</h1>
     <div class="container">
         <div class="rectangle"> 1</div>
         <div class="rectangle"> 2</div>
@@ -67,5 +116,38 @@
         <div class="rectangle"> 8</div>
         <div class="rectangle"> 9</div>
     </div>
+    <button class="theme-toggle" id="themeToggle">Toggle Dark Mode</button>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggle = document.getElementById('themeToggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or use device preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                htmlElement.setAttribute('data-theme', savedTheme);
+                themeToggle.textContent = savedTheme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+            } else {
+                // Use device dark mode preference if available
+                const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (prefersDarkMode) {
+                    htmlElement.setAttribute('data-theme', 'dark');
+                    themeToggle.textContent = 'Toggle Light Mode';
+                    localStorage.setItem('theme', 'dark');
+                }
+            }
+            
+            // Toggle theme on button click
+            themeToggle.addEventListener('click', () => {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                
+                themeToggle.textContent = newTheme === 'dark' ? 'Toggle Light Mode' : 'Toggle Dark Mode';
+            });
+        });
+    </script>
 </body>
 </html>

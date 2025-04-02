@@ -12,9 +12,11 @@
 * Run dev using
 
 ```
-cd hydrogen
 
-npm run dev
+cd hydrogen-server && node server.js
+
+
+cd hydrogen && npm run dev
 ```
 
 

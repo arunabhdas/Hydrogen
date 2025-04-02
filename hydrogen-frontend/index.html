@@ -16,9 +16,10 @@
         }
         
         .container {
+            height: 100%;
             display: grid;
-            grid-template-columns: 100px 100px minmax(100px, auto);
-            grid-template-rows: 200px 200px 200px;
+            grid-template-columns: repeat(3, 150px);
+            grid-template-rows: repeat(3, 150px);
             grid-gap: 20px;
             max-width: 600px;
             padding: 20px;

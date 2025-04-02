@@ -91,7 +91,8 @@ function Home() {
   if (getUsersError) return <p>Error: {getUsersError.message}</p>;
 
   const handleCreateUser = async () => {
-    createUser()
+    console.log(newUser);
+    // createUser()
   };
 
   return (
@@ -102,9 +103,20 @@ function Home() {
         { getUserByIdLoading ? <p> Loading user...</p> : (
           <>
           <div>
-            <input placeholder="Name..."/>
-            <input placeholder="Age..." type="number"/>
-            <button onClick={handleCreateUser}>Create User</button>
+            <input 
+              placeholder="Name..." 
+              onChange={(e) => setNewUser((prev) => (
+                {...prev, name: e.target.value}
+              ))}
+            />
+            <input 
+            placeholder="Age..." 
+            type="number"
+            onChange={(e) => setNewUser((prev) => (
+              {...prev, age: e.target.value}
+            ))}
+            />
+            <button onClick={handleCreateUser}>Create New User</button>
           </div>
           <h1>Selected User</h1>
           <p>{ getUserByIdData.getUserById.name } </p>

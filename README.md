@@ -2,9 +2,10 @@
 
 ## Screenshots
 
-<img src="https://raw.githubusercontent.com/arunabhdas/Hydrogen/refs/heads/main/screenshots/hydrogen_frontend_starter_kit_1.png" width="640"/>
+<img src="https://raw.githubusercontent.com/arunabhdas/Hydrogen/refs/heads/main/screenshots/hydrogen_starter_kit_1.png" width="640"/>
 
-<img src="https://github.com/arunabhdas/Hydrogen/blob/main/screenshots/hydrogen_agentic_crm_1.png?raw=true" width="720" />
+<img src="https://raw.githubusercontent.com/arunabhdas/Hydrogen/refs/heads/main/screenshots/hydrogen_starter_kit_2.png" width="640"/>
+
 
 
 ## Develop

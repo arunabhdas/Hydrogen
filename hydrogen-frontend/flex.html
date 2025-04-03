@@ -49,17 +49,22 @@
             gap: 20px;
             align-items: baseline;
             justify-content: space-around;
-            flex-wrap: wrap;
+            flex-wrap: wrap-reverse;
         }
         #box1 {
-            flex-grow: 1;
+            height: 50px;
+            align-self: flex-end;
         }
 
         #box2 {
+            height: 100px;
             flex-grow: 1;
+            align-self: flex-start;
         }
 
         #box3 {
+            height: 75px;
+            align-self: flex-start;
         }
 
         .theme-toggle {
